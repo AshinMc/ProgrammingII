@@ -21,8 +21,8 @@ jobs:
           
       - name: Run tests
         run: |
-          pytest test.py
+          pytest test_project.py
           
       - name: Format code with Python Black
         run: |
-          black --check test.py
+          black --check test_project.py
