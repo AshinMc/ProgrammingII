@@ -2,6 +2,7 @@ import os
 import pytest
 from main import FileReader, ColoredFileReader
 
+
 # Create test files
 @pytest.fixture
 def setup_files():
