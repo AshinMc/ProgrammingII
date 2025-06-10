@@ -1,6 +1,6 @@
 import os
 import pytest
-from project import FileReader, ColoredFileReader
+from main import FileReader, ColoredFileReader
 
 # Create test files
 @pytest.fixture
