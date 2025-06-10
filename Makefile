@@ -1,8 +1,8 @@
 .PHONY: setup install test coverage lint format clean docs
 
 # Variables
-PYTHON = python
-PIP = $(PYTHON) -m pip
+PYTHON=python
+PIP= $(PYTHON) -m pip
 PYTEST = pytest
 PYTEST_FLAGS = --verbose --color=yes
 COVERAGE_FLAGS = --cov=. --cov-report=term --cov-report=html
@@ -20,7 +20,8 @@ coverage:
 	$(PYTEST) $(PYTEST_FLAGS) $(COVERAGE_FLAGS) test_project.py
 
 lint:
-	pylint $(LINT_FLAGS) main.py test_project.py
+	pylint $(LINT_FLAGS) main.py
+	pylint $(LINT_FLAGS) test_project.py
 
 format:
 	black $(FORMAT_SOURCE)
