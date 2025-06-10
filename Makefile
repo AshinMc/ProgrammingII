@@ -11,7 +11,7 @@ FORMAT_SOURCE = main.py test_project.py
 
 help:
     @echo "Available commands"
-	@echo "  make setup      - Create virtual environment"
+    @echo "  make setup      - Create virtual environment"
     @echo "  make install    - Install dependencies"
     @echo "  make test       - Run tests"
     @echo "  make coverage   - Run tests with coverage"
