@@ -1,13 +1,10 @@
 .PHONY: setup install test coverage lint format clean docs
 
-# Variables
 PYTHON=python
 PIP= $(PYTHON) -m pip
 PYTEST = pytest
 PYTEST_FLAGS = --verbose --color=yes
-COVERAGE_FLAGS = --cov=. --cov-report=term --cov-report=html
-LINT_FLAGS = --disable=C0111,R0903
-FORMAT_SOURCE = main.py test_project.py
+FORMAT_SOURCE = main.py test_project.py dice.py
 
 install:
 	$(PIP) install --upgrade pip
@@ -20,8 +17,9 @@ coverage:
 	$(PYTEST) $(PYTEST_FLAGS) $(COVERAGE_FLAGS) test_project.py
 
 lint:
-	pylint $(LINT_FLAGS) main.py || true
-	pylint $(LINT_FLAGS) test_project.py || true 
+	pylint main.py || true
+	pylint test_project.py || true 
+	pylint dice.py || true
 
 format:
 	black $(FORMAT_SOURCE)
