@@ -59,8 +59,12 @@ class FileReader:
         return cls(os.path.join(directory, filename))
 
     def __str__(self):
-        """String representation of FileReader."""
-        return f"FileReader({self._file_path})"
+        """String representation of FileReader - returns file contents."""
+        if not os.path.exists(self._file_path):
+            return f"File not found: {self._file_path}"
+        
+        with open(self._file_path, "r") as f:
+            return f.read()
 
     def __add__(self, other):
         """Concatenate contents of two files using + operator."""
@@ -97,12 +101,12 @@ class FileReader:
 class ColoredFileReader(FileReader):
     """Enhanced FileReader with colored output capabilities."""
 
-    @color_decorator("red")
+    @color_decorator("blue")
     def __str__(self):
         """Colored string representation."""
         return super().__str__()
 
-    @color_decorator("green")
+    @color_decorator("red")
     def concat_files(self, *file_paths):
         """Override to add colored formatting to concatenated content."""
         result = super().concat_files(*file_paths)
@@ -121,8 +125,10 @@ if __name__ == "__main__":
     fr2 = FileReader("file2.txt")
     print(fr1)
     print(fr1 + fr2)  # Using __add__
-
+    print("\n")
+    print("Now we use the color decorator")
+    print("Fahad thinks its funny and helps us look at it better\n\n")
     # ColoredFileReader usage
     cfr = ColoredFileReader("file1.txt")
-    print(cfr)  # Colored output
+    print(cfr) 
     print(cfr.concat_files("file2.txt", "file3.txt"))
