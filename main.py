@@ -62,7 +62,7 @@ class FileReader:
         """String representation of FileReader - returns file contents."""
         if not os.path.exists(self._file_path):
             return f"File not found: {self._file_path}"
-        
+
         with open(self._file_path, "r") as f:
             return f.read()
 
@@ -130,5 +130,5 @@ if __name__ == "__main__":
     print("Fahad thinks its funny and helps us look at it better\n\n")
     # ColoredFileReader usage
     cfr = ColoredFileReader("file1.txt")
-    print(cfr) 
+    print(cfr)
     print(cfr.concat_files("file2.txt", "file3.txt"))
