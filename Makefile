@@ -19,8 +19,8 @@ help:
     @echo "  make format     - Format code with black"
     @echo "  make clean      - Remove temporary files"
     @echo "  make docs       - Generate documentation"
-
-setup:
+    
+    setup:
     $(PYTHON) -m venv venv
     @echo "Virtual environment created. Activate with: source venv/bin/activate (Linux/Mac) or venv\\Scripts\\activate (Windows)"
 
