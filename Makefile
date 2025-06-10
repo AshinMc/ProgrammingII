@@ -1,4 +1,4 @@
-.PHONY: setup install test coverage lint format clean docs help
+.PHONY: setup install test coverage lint format clean docs
 
 # Variables
 PYTHON = python
