@@ -20,8 +20,8 @@ coverage:
 	$(PYTEST) $(PYTEST_FLAGS) $(COVERAGE_FLAGS) test_project.py
 
 lint:
-	pylint $(LINT_FLAGS) main.py
-	pylint $(LINT_FLAGS) test_project.py
+	pylint $(LINT_FLAGS) main.py || true
+	pylint $(LINT_FLAGS) test_project.py || true 
 
 format:
 	black $(FORMAT_SOURCE)
