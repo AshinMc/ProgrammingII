@@ -1,8 +1,11 @@
+"""Dice rolling simulation with frequency visualization."""
+
 import random
 import matplotlib.pyplot as plt
 
 
 def plot_dice_frequency(func):
+    """Decorator that plots frequency distribution of dice rolls."""
     def wrapper(count, seed=None):
         if seed is not None:
             random.seed(seed)
@@ -51,11 +54,13 @@ counts = [10, 100, 1000, 10000, 100000, 500000]
 
 @plot_dice_frequency
 def roll_dice(count):
+    """Generate random dice rolls."""
     for i in range(count):
         yield random.randint(1, 6)
 
 
 def run_all_dice_rolls(seed=None):
+    """Run dice roll simulations for all count values."""
     for c in counts:
         print(f"Rolling the dice {c} times...")
         _ = roll_dice(c, seed)
