@@ -1,20 +1,11 @@
 .PHONY: setup install test coverage lint format clean docs
 
-PYTHON=python
-PIP= $(PYTHON) -m pip
-PYTEST = pytest
-PYTEST_FLAGS = --verbose --color=yes
-FORMAT_SOURCE = main.py test_project.py dice.py
-
 install:
-	$(PIP) install --upgrade pip
-	$(PIP) install -r requirements.txt
+	python -m pip install --upgrade pip
+	python -m pip install -r requirements.txt
 
 test:
-	$(PYTEST) $(PYTEST_FLAGS) test_project.py
-
-coverage:
-	$(PYTEST) $(PYTEST_FLAGS) $(COVERAGE_FLAGS) test_project.py
+	pytest --verbose test_project.py
 
 lint:
 	pylint main.py || true
