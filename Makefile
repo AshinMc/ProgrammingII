@@ -1,4 +1,4 @@
-.PHONY: setup install test coverage lint format clean docs
+.PHONY: install test  lint format clean docs
 
 install:
 	python -m pip install --upgrade pip
