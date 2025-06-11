@@ -1,17 +1,18 @@
-"""File utilities for reading and manipulating text files with color output."""
+"""Reading and manipulating text files with color output."""
 
 import os
 
-
-def color_decorator(color: str):
-    """Apply ANSI color formatting to function output."""
-    colors = {
+colors = {
         "red": "\033[91m",
         "green": "\033[92m",
         "blue": "\033[94m",
         "yellow": "\033[93m",
         "end": "\033[0m",
     }
+
+def color_decorator(color: str):
+    """Apply ANSI color formatting to function output."""
+    
 
     def decorator(func):
         def wrapper(*args, **kwargs):
