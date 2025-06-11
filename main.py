@@ -1,7 +1,10 @@
+"""File utilities for reading and manipulating text files with color output."""
+
 import os
 
 
 def color_decorator(color: str):
+    """Apply ANSI color formatting to function output."""
     colors = {
         "red": "\033[91m",
         "green": "\033[92m",
@@ -21,18 +24,24 @@ def color_decorator(color: str):
 
 
 class FileReader:
+    """Read and manipulate text files."""
+
     def __init__(self, file_path):
+        """Initialize with file path."""
         self._file_path = file_path
 
     @property
     def file_path(self):
+        """Get file path."""
         return self._file_path
 
     @file_path.setter
     def file_path(self, value):
+        """Set file path."""
         self._file_path = value
 
     def read_lines(self):
+        """Generate lines from file one at a time."""
         if not os.path.exists(self._file_path):
             yield f"File not found: {self._file_path}"
             return
@@ -43,13 +52,16 @@ class FileReader:
 
     @staticmethod
     def file_exists(path):
+        """Check if file exists."""
         return os.path.exists(path)
 
     @classmethod
     def from_directory(cls, directory, filename):
+        """Create FileReader from directory and filename."""
         return cls(os.path.join(directory, filename))
 
     def __str__(self):
+        """Return file contents as string."""
         if not os.path.exists(self._file_path):
             return f"File not found: {self._file_path}"
 
@@ -57,6 +69,7 @@ class FileReader:
             return f.read()
 
     def __add__(self, other):
+        """Concatenate contents of two files."""
         if not isinstance(other, FileReader):
             raise ValueError("Can only add FileReader instances")
 
@@ -76,6 +89,7 @@ class FileReader:
         return content
 
     def concat_files(self, *file_paths):
+        """Concatenate contents of multiple files."""
         content = ""
         for path in (self._file_path,) + file_paths:
             if not os.path.exists(path):
@@ -87,30 +101,20 @@ class FileReader:
 
 
 class ColoredFileReader(FileReader):
+    """FileReader with colored terminal output."""
+
     @color_decorator("blue")
     def __str__(self):
+        """Return file contents with blue color."""
         return super().__str__()
 
     @color_decorator("red")
     def concat_files(self, *file_paths):
+        """Concatenate files with red color."""
         result = super().concat_files(*file_paths)
         return f"--- Concatenated Content ---\n{result}"
 
     @color_decorator("blue")
     def read_lines(self):
+        """Return file lines as list with blue color."""
         return [line for line in super().read_lines()]
-
-
-if __name__ == "__main__":
-    # Basic FileReader usage
-    fr1 = FileReader("file1.txt")
-    fr2 = FileReader("file2.txt")
-    print(fr1)
-    print(fr1 + fr2)
-    print("\n")
-    print("Now we use the color decorator")
-    print("Fahad thinks its funny and helps us look at it better\n\n")
-    # ColoredFileReader usage
-    cfr = ColoredFileReader("file1.txt")
-    print(cfr)
-    print(cfr.concat_files("file2.txt", "file3.txt"))
