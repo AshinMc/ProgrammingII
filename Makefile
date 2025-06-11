@@ -26,6 +26,7 @@ clean:
 	rm -rf .tox
 	find . -type d -name __pycache__ -exec rm -rf {} +
 	find . -type f -name "*.pyc" -delete
+	
 docs:
 	mkdir -p docs
 	pdoc --html --output-dir docs --force main.py
