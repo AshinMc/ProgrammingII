@@ -28,4 +28,4 @@ clean:
 	find . -type f -name "*.pyc" -delete
 docs:
 	mkdir -p docs
-	pdoc --html --output-dir docs main.py
+	pdoc --html --output-dir docs --force main.py
