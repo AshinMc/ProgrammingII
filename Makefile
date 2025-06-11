@@ -13,10 +13,10 @@ lint:
 	pylint dice.py || true
 
 format:
-	black $(FORMAT_SOURCE)
+	black main.py dice.py test_project.py
 
 format-check:
-	black --check $(FORMAT_SOURCE)
+	black --check main.py dice.py test_project.py
 
 clean:
 	rm -rf __pycache__
