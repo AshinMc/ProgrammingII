@@ -21,10 +21,7 @@ jobs:
           
       - name: Run tests
         run: make test
-          
-      - name: Run code coverage
-        run: make coverage
-          
+             
       - name: Lint code
         run: make lint
           

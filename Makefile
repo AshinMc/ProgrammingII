@@ -7,9 +7,6 @@ install:
 test:
 	pytest --verbose test_project.py
 
-coverage:
-	pytest --verbose test_project.py
-
 lint:
 	pylint main.py || true
 	pylint test_project.py || true 
