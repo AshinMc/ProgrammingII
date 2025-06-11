@@ -14,6 +14,7 @@ Whether you’re here to contribute, learn, or steal out code, we’re glad you 
 - **Python**: 89.6% of our code and 100% of our problems
 - **Makefile**: 10.4% automation, 90% confusion
 - **Money**: 0%
+- **Sleep**: -15%
 
 ## 📦 How to Use
 
@@ -45,7 +46,7 @@ Steal this code, make it better, and send us a Doner.
 Happy coding!  
 May both of the sides of your pillows are warm.
 
-### _P.S We would like to say special thanks to ChatGPT for saving our us with 6 hours remaining till presentation"_
+### _P.S We would like to say special thanks to ChatGPT for saving us with 6 hours remaining till presentation"_
 
 
 
