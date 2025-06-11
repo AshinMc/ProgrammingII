@@ -45,7 +45,7 @@ Steal this code, make it better, and send us a Doner.
 Happy coding!  
 May both of the sides of your pillows are warm.
 
-### _P.S We would like to say special thanks to ChatGPT for saving our ass with 6 hours remaining till presentation"_
+### _P.S We would like to say special thanks to ChatGPT for saving our us with 6 hours remaining till presentation"_
 
 
 
