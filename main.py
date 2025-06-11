@@ -3,16 +3,16 @@
 import os
 
 colors = {
-        "red": "\033[91m",
-        "green": "\033[92m",
-        "blue": "\033[94m",
-        "yellow": "\033[93m",
-        "end": "\033[0m",
-    }
+    "red": "\033[91m",
+    "green": "\033[92m",
+    "blue": "\033[94m",
+    "yellow": "\033[93m",
+    "end": "\033[0m",
+}
+
 
 def color_decorator(color: str):
     """Apply ANSI color formatting to function output."""
-    
 
     def decorator(func):
         def wrapper(*args, **kwargs):
@@ -119,14 +119,14 @@ class ColoredFileReader(FileReader):
     def read_lines(self):
         """Return file lines as list with blue color."""
         return [line for line in super().read_lines()]
-    
 
-if __name__ == "__main__": 
+
+if __name__ == "__main__":
     # Basic usage
     fr1 = FileReader("file1.txt")
     fr2 = FileReader("file2.txt")
     print(fr1)
-    print(fr1 + fr2) 
+    print(fr1 + fr2)
     print("\n")
     print("Now we use the color decorator")
     print("Fahad thinks its funny and helps us look at it better\n\n")

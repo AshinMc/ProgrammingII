@@ -6,6 +6,7 @@ import matplotlib.pyplot as plt
 
 def plot_dice_frequency(func):
     """Decorator that plots frequency distribution of dice rolls."""
+
     def wrapper(count, seed=None):
         if seed is not None:
             random.seed(seed)
