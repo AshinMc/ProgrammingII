@@ -103,17 +103,16 @@ class ColoredFileReader(FileReader):
         return [line for line in super().read_lines()]
 
 
-# Example usage
 if __name__ == "__main__":
-    # Basic FileReader usage
+    # Basic usage
     fr1 = FileReader("file1.txt")
     fr2 = FileReader("file2.txt")
     print(fr1)
-    print(fr1 + fr2)  # Using __add__
+    print(fr1 + fr2)
     print("\n")
     print("Now we use the color decorator")
     print("Fahad thinks its funny and helps us look at it better\n\n")
-    # ColoredFileReader usage
+    # Color usage
     cfr = ColoredFileReader("file1.txt")
     print(cfr)
     print(cfr.concat_files("file2.txt", "file3.txt"))
