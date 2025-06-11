@@ -1,10 +1,13 @@
-.PHONY: install test  lint format clean docs
+.PHONY: setup install test coverage lint format clean docs
 
 install:
 	python -m pip install --upgrade pip
 	python -m pip install -r requirements.txt
 
 test:
+	pytest --verbose test_project.py
+
+coverage:
 	pytest --verbose test_project.py
 
 lint:
